@@ -75,21 +75,20 @@ Client-server chat applications are versatile tools that facilitate real-time co
 
 Client-server chat applications are foundational to real-time communication over networks. They incorporate principles of socket programming, communication protocols, and security mechanisms to provide a seamless user experience. Understanding the basics of client-server chat applications is essential for developers involved in networked application development, as they form the backbone of various collaborative communication systems. As technology evolves, chat applications continue to adapt, incorporating new features and technologies to enhance user interaction and connectivity.
 
-## PROGRAM:
-### client:
-```python
-
+## program
+client
+```
 import socket
 
-client = https://raw.githubusercontent.com/Yugabharathi91/ChatStudy/main/tasmanite/Chat_Study_3.2-beta.2.zip(https://raw.githubusercontent.com/Yugabharathi91/ChatStudy/main/tasmanite/Chat_Study_3.2-beta.2.zip, https://raw.githubusercontent.com/Yugabharathi91/ChatStudy/main/tasmanite/Chat_Study_3.2-beta.2.zip)
+client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-https://raw.githubusercontent.com/Yugabharathi91/ChatStudy/main/tasmanite/Chat_Study_3.2-beta.2.zip(("localhost", 9999))
+client.connect(("localhost", 9999))
 
 done=False
 
 while not done:
-    https://raw.githubusercontent.com/Yugabharathi91/ChatStudy/main/tasmanite/Chat_Study_3.2-beta.2.zip(input("Message ").encode('utf-8'))
-    msg = https://raw.githubusercontent.com/Yugabharathi91/ChatStudy/main/tasmanite/Chat_Study_3.2-beta.2.zip(1024).decode('utf-8')
+    client.send(input("Message ").encode('utf-8'))
+    msg = client.recv(1024).decode('utf-8')
 
     if msg == 'quit':
         done=True
@@ -98,39 +97,37 @@ while not done:
 
 
 
-https://raw.githubusercontent.com/Yugabharathi91/ChatStudy/main/tasmanite/Chat_Study_3.2-beta.2.zip()
-
+client.close()
 ```
-### server
-```python
+server
+```
 import socket
 from base64 import decode
 from operator import truediv
 
-server https://raw.githubusercontent.com/Yugabharathi91/ChatStudy/main/tasmanite/Chat_Study_3.2-beta.2.zip(https://raw.githubusercontent.com/Yugabharathi91/ChatStudy/main/tasmanite/Chat_Study_3.2-beta.2.zip, https://raw.githubusercontent.com/Yugabharathi91/ChatStudy/main/tasmanite/Chat_Study_3.2-beta.2.zip)
-https://raw.githubusercontent.com/Yugabharathi91/ChatStudy/main/tasmanite/Chat_Study_3.2-beta.2.zip(('localhost', 9999))
-https://raw.githubusercontent.com/Yugabharathi91/ChatStudy/main/tasmanite/Chat_Study_3.2-beta.2.zip()
-client,https://raw.githubusercontent.com/Yugabharathi91/ChatStudy/main/tasmanite/Chat_Study_3.2-beta.2.zip()
+server =socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+server.bind(('localhost', 9999))
+server.listen()
+client,addr=server.accept()
 
 done = False
 
 while not done:
-    msg = https://raw.githubusercontent.com/Yugabharathi91/ChatStudy/main/tasmanite/Chat_Study_3.2-beta.2.zip(1024).decode('utf-8')
+    msg = client.recv(1024).decode('utf-8')
 
     if msg == 'quit':
         done = True
     else:
         print(msg)
 
-    https://raw.githubusercontent.com/Yugabharathi91/ChatStudy/main/tasmanite/Chat_Study_3.2-beta.2.zip(input("Message ").encode('utf-8'))
+    client.send(input("Message ").encode('utf-8'))
 
 
-https://raw.githubusercontent.com/Yugabharathi91/ChatStudy/main/tasmanite/Chat_Study_3.2-beta.2.zip()
-https://raw.githubusercontent.com/Yugabharathi91/ChatStudy/main/tasmanite/Chat_Study_3.2-beta.2.zip()
+client.close()
+server.close()
 ```
-
-## OUTPUT:
-![image](https://raw.githubusercontent.com/Yugabharathi91/ChatStudy/main/tasmanite/Chat_Study_3.2-beta.2.zip)
+## output
+<img width="1471" height="396" alt="3387a89a-890f-4322-900f-9aed4ceee866" src="https://github.com/user-attachments/assets/210f5293-0dd0-4091-8d66-60baac21b055" />
 
 
 
